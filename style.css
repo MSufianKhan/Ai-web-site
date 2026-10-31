@@ -1,0 +1,958 @@
+/* ===== Design tokens: dark base with red / orange / yellow / cream accents ===== */
+:root {
+    --bg: #0e0806;
+    --bg2: #1a0f0a;
+    --red: #e8341c;
+    --orange: #ff8a1f;
+    --yellow: #ffc933;
+    --cream: #fff1d6;
+    --glass: rgba(255, 241, 214, .07);
+    --line: rgba(255, 241, 214, .16);
+    --head: 'Anton', 'Impact', sans-serif;
+    --body: 'Poppins', system-ui, sans-serif
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px
+}
+
+body {
+    background: var(--bg);
+    color: var(--cream);
+    font: 400 1rem/1.7 var(--body);
+    overflow-x: hidden
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px
+}
+
+/* ===== Buttons: glowing, lift on hover ===== */
+.btn {
+    display: inline-block;
+    border: 0;
+    border-radius: 99px;
+    padding: .9rem 1.8rem;
+    font: 600 1rem var(--body);
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s
+}
+
+.btn.sm {
+    padding: .55rem 1.1rem;
+    font-size: .9rem
+}
+
+.btn-glow {
+    background: linear-gradient(135deg, var(--orange), var(--red));
+    color: #fff;
+    box-shadow: 0 0 22px rgba(255, 100, 30, .5)
+}
+
+.btn-glow:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 0 40px rgba(255, 120, 30, .9)
+}
+
+.btn-ghost {
+    border: 2px solid var(--cream);
+    color: var(--cream)
+}
+
+.btn-ghost:hover {
+    background: var(--cream);
+    color: var(--bg);
+    transform: translateY(-3px)
+}
+
+/* ===== Navbar ===== */
+.nav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5vw;
+    transition: background .4s, backdrop-filter .4s, padding .4s
+}
+
+.nav.solid {
+    background: rgba(14, 8, 6, .8);
+    backdrop-filter: blur(14px);
+    padding: .6rem 5vw;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .5)
+}
+
+.logo {
+    font: 1.6rem var(--head);
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: .5rem
+}
+
+.logo-icon {
+    filter: drop-shadow(0 0 10px var(--orange))
+}
+
+.links {
+    display: flex;
+    gap: 2rem
+}
+
+.links a {
+    position: relative;
+    font-weight: 500
+}
+
+.links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--orange);
+    transition: width .3s
+}
+
+.links a:hover::after {
+    width: 100%
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+
+.cart {
+    position: relative;
+    background: none;
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+.cart span {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 99px;
+    background: var(--red);
+    color: #fff;
+    font: 600 .72rem/20px var(--body);
+    text-align: center
+}
+
+.cart span.pop {
+    animation: pop .4s
+}
+
+@keyframes pop {
+    50% {
+        transform: scale(1.7)
+    }
+}
+
+.burger-btn {
+    display: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px
+}
+
+.burger-btn i {
+    width: 26px;
+    height: 3px;
+    background: var(--cream);
+    border-radius: 3px;
+    transition: .3s
+}
+
+/* ===== Hero ===== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 7rem 5vw 4rem;
+    overflow: hidden;
+    perspective: 1200px;
+    background: radial-gradient(ellipse at 50% 55%, #4a1a0a 0, var(--bg) 65%)
+}
+
+.glow {
+    position: absolute;
+    width: 60vmin;
+    height: 60vmin;
+    border-radius: 50%;
+    background: radial-gradient(var(--orange), transparent 65%);
+    opacity: .35;
+    filter: blur(40px);
+    top: 30%;
+    left: 50%;
+    translate: -50% -10%;
+    animation: breathe 5s ease-in-out infinite
+}
+
+@keyframes breathe {
+    50% {
+        opacity: .6;
+        scale: 1.12
+    }
+}
+
+.hero-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    translate: 0 -62%;
+    display: flex;
+    flex-direction: column;
+    font: clamp(4rem, 15vw, 13rem)/.9 var(--head);
+    letter-spacing: .01em;
+    z-index: 1;
+    background: linear-gradient(180deg, var(--cream) 30%, var(--yellow) 60%, var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rise 1.2s both
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(60px) scale(.96)
+    }
+}
+
+/* Burger tilt: JS sets --tx / --ty (-1 to 1) from the mouse position */
+.stage {
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    transform-style: preserve-3d;
+    transform: rotateX(calc(var(--ty, 0)*-10deg)) rotateY(calc(var(--tx, 0)*14deg));
+    transition: transform .2s ease-out
+}
+
+.stage::before {
+    content: "";
+    position: absolute;
+    inset: -25% -30%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(255, 160, 40, .55), rgba(232, 52, 28, .25) 45%, transparent 70%);
+    filter: blur(30px);
+    animation: breathe 5s ease-in-out infinite
+}
+
+.stage::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -34px;
+    width: 70%;
+    height: 28px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, .65), transparent 70%);
+    animation: shadow 6s ease-in-out infinite
+}
+
+@keyframes shadow {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1)
+    }
+
+    50% {
+        transform: translateX(-50%) scale(.75);
+        opacity: .6
+    }
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 3;
+    align-self: end;
+    animation: rise 1.2s .5s both
+}
+
+.hero-copy p {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 12px #000
+}
+
+.cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+/* CSS 3D burger: stacked layers, tilted in 3D, slowly rocking */
+.burger {
+    --w: min(300px, 62vw);
+    width: var(--w);
+    transform-style: preserve-3d;
+    transform: rotateX(22deg) rotateZ(-5deg);
+    animation: rock 6s ease-in-out infinite;
+    filter: drop-shadow(0 40px 30px rgba(0, 0, 0, .7))
+}
+
+@keyframes rock {
+    50% {
+        transform: rotateX(14deg) rotateZ(5deg) translateY(-14px)
+    }
+}
+
+.l {
+    position: relative;
+    margin-top: -8px;
+    transition: transform .5s cubic-bezier(.3, 1.5, .5, 1)
+}
+
+.burger:hover .bun-top {
+    transform: translateY(-34px)
+}
+
+.burger:hover .lettuce {
+    transform: translateY(-22px)
+}
+
+.burger:hover .cheese {
+    transform: translateY(-12px)
+}
+
+.burger:hover .patty {
+    transform: translateY(8px)
+}
+
+.burger:hover .bun-bottom {
+    transform: translateY(18px)
+}
+
+.bun-top {
+    height: calc(var(--w)*.4);
+    border-radius: 50% 50% 18% 18%/90% 90% 20% 20%;
+    background: radial-gradient(ellipse at 35% 25%, #ffd27a, #e08a2c 55%, #9c4a12);
+    box-shadow: inset 0 -12px 20px rgba(80, 30, 0, .5)
+}
+
+.bun-top::before {
+    content: "";
+    position: absolute;
+    top: 22%;
+    left: 20%;
+    width: 7px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--cream);
+    box-shadow: 50px -6px var(--cream), 100px 4px var(--cream), 150px -4px var(--cream), 25px 30px var(--cream), 80px 34px var(--cream), 130px 30px var(--cream), 175px 26px var(--cream), 60px 66px var(--cream), 115px 64px var(--cream)
+}
+
+.lettuce {
+    height: 34px;
+    margin-inline: -5%;
+    border-radius: 40px;
+    background: radial-gradient(circle at 12px 4px, #9be35a 0 10px, transparent 11px) 0 0/26px 100% repeat-x, #4aa52b;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, .4)
+}
+
+.cheese {
+    height: 42px;
+    margin-inline: -4%;
+    background: linear-gradient(var(--yellow), var(--orange));
+    clip-path: polygon(0 0, 100% 0, 100% 38%, 92% 100%, 84% 40%, 64% 40%, 56% 85%, 48% 40%, 22% 40%, 14% 100%, 7% 42%, 0 42%)
+}
+
+.tomato {
+    height: 20px;
+    margin-inline: 2%;
+    border-radius: 20px;
+    background: linear-gradient(#ff5a3c, var(--red));
+    box-shadow: 0 5px 8px rgba(0, 0, 0, .4)
+}
+
+.patty {
+    height: 52px;
+    margin-inline: -2%;
+    border-radius: 26px;
+    background: linear-gradient(#6b3a22, #2e150a);
+    box-shadow: inset 0 5px 8px rgba(255, 160, 80, .25), 0 8px 10px rgba(0, 0, 0, .5)
+}
+
+.bun-bottom {
+    height: 48px;
+    border-radius: 12px 12px 70px 70px;
+    background: linear-gradient(#e08a2c, #9c4a12)
+}
+
+/* Floating ingredients (positions + float animation; JS adds parallax via translate) */
+.fl {
+    position: absolute;
+    z-index: 4;
+    animation: bob 6s ease-in-out infinite;
+    filter: drop-shadow(0 12px 10px rgba(0, 0, 0, .6))
+}
+
+.pep {
+    width: clamp(50px, 7vw, 90px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #e8452c, #9c1d0e);
+    box-shadow: inset 0 0 0 4px #c92a14
+}
+
+.tom {
+    width: clamp(44px, 6vw, 78px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff7a5c 0 30%, #ff4a2c 31% 60%, #d62b14 61%);
+    border: 4px solid #ff6a48
+}
+
+.chz {
+    width: clamp(40px, 5vw, 64px);
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #ffe066, var(--orange));
+    clip-path: polygon(0 100%, 100% 70%, 70% 0);
+    rotate: 15deg
+}
+
+.leaf {
+    width: clamp(36px, 5vw, 60px);
+    aspect-ratio: 1;
+    background: #5fbf3a;
+    border-radius: 0 90% 0 90%
+}
+
+.p1 {
+    top: 22%;
+    left: 8%
+}
+
+.p2 {
+    bottom: 18%;
+    right: 10%;
+    animation-delay: -2s
+}
+
+.t1 {
+    top: 18%;
+    right: 12%;
+    animation-delay: -1s
+}
+
+.t2 {
+    bottom: 22%;
+    left: 14%;
+    animation-delay: -3s
+}
+
+.c1 {
+    top: 55%;
+    left: 5%;
+    animation-delay: -4s
+}
+
+.l1 {
+    top: 40%;
+    right: 6%;
+    animation-delay: -2.5s
+}
+
+@keyframes bob {
+    50% {
+        margin-top: -22px;
+        rotate: 18deg
+    }
+}
+
+/* ===== Sections ===== */
+.section {
+    padding: 7rem 6vw;
+    max-width: 1300px;
+    margin: auto
+}
+
+.title {
+    font: clamp(2.4rem, 6vw, 5rem)/1 var(--head);
+    margin-bottom: 2.5rem
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.6rem;
+    perspective: 1000px
+}
+
+.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center
+}
+
+.two p {
+    margin-bottom: 1rem;
+    max-width: 60ch
+}
+
+/* Glassmorphism cards: lift + tilt on hover */
+.glass {
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .4)
+}
+
+.card {
+    padding: 1.6rem;
+    transition: transform .4s, box-shadow .4s, border-color .4s
+}
+
+.card:hover {
+    transform: translateY(-14px) rotateX(6deg) rotateZ(-1.5deg);
+    border-color: var(--orange);
+    box-shadow: 0 30px 60px rgba(255, 90, 20, .25)
+}
+
+.art {
+    font-size: 5.5rem;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: .8rem;
+    filter: drop-shadow(0 14px 12px rgba(0, 0, 0, .6));
+    transition: transform .4s
+}
+
+.card:hover .art {
+    transform: scale(1.15) rotate(-8deg)
+}
+
+.card h3 {
+    font: 1.5rem var(--head);
+    letter-spacing: .03em;
+    margin-bottom: .3rem
+}
+
+.card p {
+    font-size: .92rem;
+    opacity: .8
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.2rem
+}
+
+.row b {
+    font-size: 1.4rem;
+    color: var(--yellow)
+}
+
+/* Offer banner */
+.offer {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 4rem;
+    border-radius: 32px;
+    background: linear-gradient(135deg, var(--red), var(--orange) 60%, var(--yellow));
+    color: #2a0d05;
+    box-shadow: 0 0 80px rgba(255, 100, 20, .4)
+}
+
+.offer .title {
+    color: #2a0d05;
+    margin-bottom: 1rem
+}
+
+.offer .price {
+    font-size: 2rem;
+    margin: 1rem 0 1.5rem
+}
+
+.offer s {
+    opacity: .6
+}
+
+.offer b {
+    font: 3rem var(--head)
+}
+
+.combo {
+    display: flex;
+    justify-content: center;
+    font-size: clamp(3.5rem, 8vw, 6.5rem)
+}
+
+.combo span {
+    animation: bob 4s ease-in-out infinite;
+    filter: drop-shadow(0 14px 10px rgba(0, 0, 0, .4))
+}
+
+.combo span:nth-child(2) {
+    animation-delay: -1.3s;
+    font-size: 1.3em
+}
+
+.combo span:nth-child(3) {
+    animation-delay: -2.6s
+}
+
+/* CSS pizza */
+.pizza {
+    position: relative;
+    width: min(420px, 85%);
+    aspect-ratio: 1;
+    margin: auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffc933 0 56%, #e36a1c 57% 66%, #e8a050 67% 100%);
+    box-shadow: 0 40px 60px rgba(0, 0, 0, .7), inset 0 0 0 6px #c9822b;
+    animation: spin 40s linear infinite
+}
+
+.pizza i {
+    position: absolute;
+    width: 15%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #e8452c, #9c1d0e)
+}
+
+@keyframes spin {
+    to {
+        rotate: 360deg
+    }
+}
+
+.stars {
+    color: var(--yellow);
+    letter-spacing: .2em;
+    margin-bottom: .6rem
+}
+
+cite {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--orange)
+}
+
+.info {
+    list-style: none;
+    display: grid;
+    gap: .7rem;
+    margin-bottom: 1.5rem
+}
+
+.social {
+    display: flex;
+    gap: .7rem
+}
+
+.social a {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: .8rem;
+    transition: .3s
+}
+
+.social a:hover {
+    background: var(--orange);
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px var(--orange)
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem
+}
+
+.form label {
+    display: grid;
+    gap: .3rem;
+    font-weight: 500
+}
+
+.form input,
+.form textarea {
+    background: rgba(0, 0, 0, .35);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: .8rem 1rem;
+    color: var(--cream);
+    font: inherit
+}
+
+.form input:focus,
+.form textarea:focus {
+    outline: 2px solid var(--orange)
+}
+
+.ok {
+    color: var(--yellow);
+    min-height: 1.5em
+}
+
+.footer {
+    display: grid;
+    justify-items: center;
+    gap: 1.2rem;
+    padding: 3rem 5vw;
+    border-top: 1px solid var(--line);
+    background: var(--bg2);
+    text-align: center
+}
+
+.footer nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.footer small {
+    opacity: .6
+}
+
+/* Scroll reveal: JS adds .show */
+/* Scroll reveal: headings rise and fade; .from-l / .from-r slide images in from the sides */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(.97);
+    transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform .9s cubic-bezier(.2, .7, .2, 1)
+}
+
+.reveal.from-l {
+    transform: translateX(-100px) rotate(-4deg)
+}
+
+.reveal.from-r {
+    transform: translateX(100px) rotate(4deg)
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: none
+}
+
+/* Menu card images alternate left / right as their card appears */
+.card.reveal .art {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-12deg);
+    transition: opacity .8s .2s, transform .8s .2s
+}
+
+.card.reveal:nth-child(even) .art {
+    transform: translateX(50px) rotate(12deg)
+}
+
+.card.reveal.show .art {
+    opacity: 1;
+    transform: none
+}
+
+.card.reveal.show:hover .art {
+    transform: scale(1.15) rotate(-8deg);
+    transition-delay: 0s
+}
+
+/* Parallax decoration blobs (moved by JS using data-speed) */
+.section {
+    position: relative
+}
+
+.deco {
+    position: absolute;
+    z-index: -1;
+    width: 42vmin;
+    height: 42vmin;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: .28;
+    pointer-events: none;
+    will-change: translate
+}
+
+.d1 {
+    background: var(--red);
+    top: 5%;
+    left: -8%
+}
+
+.d2 {
+    background: var(--orange);
+    top: 20%;
+    right: -10%
+}
+
+.d3 {
+    background: var(--yellow);
+    bottom: 0;
+    left: -6%
+}
+
+/* Featured pizza: 3D scene, slow rotation, slices that separate on hover */
+.showcase {
+    perspective: 1200px
+}
+
+.pz-wrap {
+    display: grid;
+    place-items: center;
+    transition: transform .5s cubic-bezier(.3, 1.6, .5, 1);
+    filter: drop-shadow(0 40px 30px rgba(0, 0, 0, .65))
+}
+
+.pz-wrap:hover {
+    transform: scale(1.07)
+}
+
+.pz {
+    position: relative;
+    width: min(400px, 80vw);
+    aspect-ratio: 1;
+    transform-style: preserve-3d;
+    animation: tilt 18s linear infinite
+}
+
+@keyframes tilt {
+    from {
+        transform: rotateX(48deg) rotateZ(0)
+    }
+
+    to {
+        transform: rotateX(48deg) rotateZ(360deg)
+    }
+}
+
+.slice {
+    position: absolute;
+    inset: 0;
+    transform: rotate(var(--a))
+}
+
+.s {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    clip-path: polygon(50% 50%, 21.1% 0, 78.9% 0);
+    transition: transform .5s cubic-bezier(.3, 1.6, .5, 1);
+    background: radial-gradient(circle at 50% 22%, #e8452c 0 7%, #9c1d0e 7.5% 8.5%, transparent 9%), radial-gradient(circle, #ffc933 0 56%, #e36a1c 57% 66%, #e8a050 67% 100%)
+}
+
+.pz-wrap:hover .s {
+    transform: translateY(-7%)
+}
+
+.price b {
+    font: 2.4rem var(--head);
+    color: var(--yellow)
+}
+
+.showcase .price {
+    margin: 1rem 0 1.5rem
+}
+
+.card.reveal.show:hover {
+    transform: translateY(-14px) rotateX(6deg) rotateZ(-1.5deg)
+}
+
+/* ===== Responsive ===== */
+@media(max-width:860px) {
+
+    .two,
+    .offer {
+        grid-template-columns: 1fr
+    }
+
+    .offer {
+        padding: 2.5rem
+    }
+
+    .burger-btn {
+        display: flex
+    }
+
+    .nav-actions .btn {
+        display: none
+    }
+
+    .links {
+        position: fixed;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+        font-size: 1.4rem;
+        background: rgba(14, 8, 6, .96);
+        backdrop-filter: blur(16px);
+        translate: 100% 0;
+        transition: translate .4s
+    }
+
+    .links.open {
+        translate: 0
+    }
+
+    .hero-title {
+        translate: 0 -85%
+    }
+
+    .section {
+        padding: 5rem 6vw
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    * {
+        animation: none !important;
+        transition: none !important
+    }
+
+    .reveal,
+    .card.reveal .art {
+        opacity: 1 !important;
+        transform: none !important
+    }
+
+    .pz {
+        transform: rotateX(48deg)
+    }
+}
