@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Smoky Stack</title>
+  <meta name="description" content="Smoky Stack burgers, pizzas and platters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html" class="active"
+        aria-current="page">About</a><a href="offers.html">Offers</a><a href="my-orders.html">My Orders</a><a
+        href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="cart" href="cart.html" aria-label="View cart">🛒<span id="count">0</span></a>
+      <a href="menu.html" class="btn btn-glow sm">Order Now</a>
+      <button class="burger-btn" id="toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="links"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="navscrim" id="navscrim"></div>
+  <main class="page">
+    <section class="section">
+      <h1 class="title">Our story</h1>
+      <p class="lead">Smoky Stack started with one idea: burgers and pizza should taste like someone cared. Everything
+        is cooked to order, from hand-stretched dough to smashed-to-order patties.</p>
+    </section>
+    <section class="section two" id="about">
+      <div class="pizza reveal from-l" aria-label="Pizza">
+        <i style="top:22%;left:30%"></i><i style="top:30%;left:60%"></i><i style="top:55%;left:22%"></i><i
+          style="top:60%;left:55%"></i><i style="top:42%;left:42%"></i><i style="top:72%;left:38%"></i>
+      </div>
+      <div class="reveal">
+        <h2 class="title">Made fresh,<br>served fast</h2>
+        <p>Our dough is proofed for 48 hours, our patties are ground daily and our vegetables arrive every morning from
+          local farms. Nothing sits under a heat lamp.</p>
+        <p>Come in for a quick bite or stay for the whole evening. Our team keeps the tables clean, the music low and
+          the food hot.</p>
+      </div>
+    </section>
+    <section class="section two about">
+      <div class="imgbox reveal from-l"><img data-ph="burger2" alt="A stacked cheeseburger" loading="lazy"></div>
+      <div class="reveal from-r">
+        <h2 class="title">Our mission</h2>
+        <p>To serve honest, generous, freshly made food at a fair price, with friendly service every time.</p>
+        <h2 class="title">Our cooking standards</h2>
+        <p>Patties are ground daily, dough is proofed for 48 hours, sauces are made in-house and nothing sits under a
+          heat lamp.</p>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="title reveal">Why customers choose us</h2>
+      <div class="why">
+        <div class="glass reveal">
+          <h3>Fresh ingredients</h3>
+          <p>Vegetables delivered every morning, cheese melted to order.</p>
+        </div>
+        <div class="glass reveal">
+          <h3>Big flavor</h3>
+          <p>Smoky grills, signature sauces and bold spice levels you control.</p>
+        </div>
+        <div class="glass reveal">
+          <h3>Made your way</h3>
+          <p>Customize size, toppings, spice and more on every item.</p>
+        </div>
+        <div class="glass reveal">
+          <h3>Warm atmosphere</h3>
+          <p>A relaxed dine-in space with good music, or order for delivery.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="title reveal">The team</h2>
+      <p class="lead">Placeholder: add your head chef, manager and crew names and photos here.</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+        <p>Fresh burgers, stone-baked pizzas and big-flavor platters, made to order.</p>
+        <div class="social" data-social></div>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html?cat=burgers">Burgers</a></li>
+          <li><a href="menu.html?cat=pizzas">Pizzas</a></li>
+          <li><a href="menu.html?cat=platters">Platters</a></li>
+          <li><a href="menu.html?cat=sides">Sides</a></li>
+          <li><a href="menu.html?cat=wraps">Sandwiches &amp; Wraps</a></li>
+          <li><a href="menu.html?cat=drinks">Drinks</a></li>
+          <li><a href="menu.html?cat=desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li data-site="address"></li>
+          <li data-site="phone"></li>
+          <li data-site="email"></li>
+          <li data-site="hours"></li>
+          <li><a class="dirLink">Get Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mapbox"><iframe class="mapFrame" title="Map of the café area" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></div><small>Placeholder location. Edit SITE in
+          js/data.js.</small>
+      </div>
+    </div>
+    <p class="copy">© 2026 Smoky Stack Café. Demo ordering site: no real payments or deliveries.</p>
+  </footer>
+  <button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

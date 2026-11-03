@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Smoky Stack</title>
+  <meta name="description" content="Smoky Stack burgers, pizzas and platters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a
+        href="offers.html">Offers</a><a href="my-orders.html">My Orders</a><a href="contact.html" class="active"
+        aria-current="page">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="cart" href="cart.html" aria-label="View cart">🛒<span id="count">0</span></a>
+      <a href="menu.html" class="btn btn-glow sm">Order Now</a>
+      <button class="burger-btn" id="toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="links"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="navscrim" id="navscrim"></div>
+  <main class="page">
+    <section class="section two">
+      <div>
+        <h1 class="title">Contact us</h1>
+        <p class="demo">All details below are editable placeholders (see js/data.js).</p>
+        <ul class="info">
+          <li>📍 <span data-site="address"></span></li>
+          <li>📞 <span data-site="phone"></span></li>
+          <li>✉️ <span data-site="email"></span></li>
+          <li>🕒 <span data-site="hours"></span></li>
+        </ul>
+        <div class="social" data-social></div><br><a class="btn btn-ghost sm dirLink">Get Directions</a>
+      </div>
+      <form class="glass form" id="contactForm" novalidate>
+        <label>Name<input name="name" autocomplete="name"><small class="err" id="cerr-name"></small></label>
+        <label>Email<input name="email" type="email" autocomplete="email"><small class="err"
+            id="cerr-email"></small></label>
+        <label>Message<textarea name="message" rows="4"></textarea><small class="err" id="cerr-message"></small></label>
+        <button class="btn btn-glow" type="submit">Send message</button>
+        <p class="ok" id="cOk" role="status"></p>
+      </form>
+    </section>
+    <section class="section">
+      <div class="mapbox"><iframe class="mapFrame" title="Map of the café area" loading="lazy"></iframe></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+        <p>Fresh burgers, stone-baked pizzas and big-flavor platters, made to order.</p>
+        <div class="social" data-social></div>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html?cat=burgers">Burgers</a></li>
+          <li><a href="menu.html?cat=pizzas">Pizzas</a></li>
+          <li><a href="menu.html?cat=platters">Platters</a></li>
+          <li><a href="menu.html?cat=sides">Sides</a></li>
+          <li><a href="menu.html?cat=wraps">Sandwiches &amp; Wraps</a></li>
+          <li><a href="menu.html?cat=drinks">Drinks</a></li>
+          <li><a href="menu.html?cat=desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li data-site="address"></li>
+          <li data-site="phone"></li>
+          <li data-site="email"></li>
+          <li data-site="hours"></li>
+          <li><a class="dirLink">Get Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mapbox"><iframe class="mapFrame" title="Map of the café area" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></div><small>Placeholder location. Edit SITE in
+          js/data.js.</small>
+      </div>
+    </div>
+    <p class="copy">© 2026 Smoky Stack Café. Demo ordering site: no real payments or deliveries.</p>
+  </footer>
+  <button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

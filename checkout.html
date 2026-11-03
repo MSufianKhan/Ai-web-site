@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout | Smoky Stack</title>
+  <meta name="description" content="Smoky Stack burgers, pizzas and platters.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="nav" id="nav">
+    <a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">About</a><a
+        href="offers.html">Offers</a><a href="my-orders.html">My Orders</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="cart" href="cart.html" aria-label="View cart">🛒<span id="count">0</span></a>
+      <a href="menu.html" class="btn btn-glow sm">Order Now</a>
+      <button class="burger-btn" id="toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="links"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="navscrim" id="navscrim"></div>
+  <main class="page">
+    <section class="section">
+      <h1 class="title">Checkout</h1>
+      <div id="coEmpty" class="empty" hidden>
+        <p>Your cart is empty.</p><a class="btn btn-glow sm" href="menu.html">Back to menu</a>
+      </div>
+      <div id="coMain" class="cogrid">
+        <form id="coForm" class="form" novalidate>
+          <label>Full name<input name="name" autocomplete="name"><small class="err" id="err-name"></small></label>
+          <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="0300 1234567"><small
+              class="err" id="err-phone"></small></label>
+          <label>Email (optional)<input name="email" type="email" autocomplete="email"><small class="err"
+              id="err-email"></small></label>
+          <label>Delivery address<input name="address" autocomplete="street-address"><small class="err"
+              id="err-address"></small></label>
+          <label>Area / locality<input name="area"><small class="err" id="err-area"></small></label>
+          <label>Delivery instructions (optional)<textarea name="instr" rows="2" maxlength="200"></textarea></label>
+          <fieldset>
+            <legend>Payment method</legend>
+            <label class="opt"><input type="radio" name="pay" value="Cash on Delivery" checked><span>Cash on
+                Delivery</span></label>
+            <label class="opt"><input type="radio" name="pay" value="Easypaisa (demo)"><span>Easypaisa</span><em>demo
+                only</em></label>
+            <label class="opt"><input type="radio" name="pay" value="JazzCash (demo)"><span>JazzCash</span><em>demo
+                only</em></label>
+          </fieldset>
+          <p class="demo">Demo checkout: no real payment is taken and no restaurant receives this order.</p><button
+            class="btn btn-glow" type="submit">Place order</button>
+        </form>
+        <div class="glass sumbox">
+          <h3>Order summary</h3>
+          <div id="coItems"></div>
+          <div class="sum" id="coSum"></div><a class="btn btn-ghost sm" href="cart.html">Edit cart</a>
+        </div>
+      </div>
+      <div id="coDone" hidden></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+        <p>Fresh burgers, stone-baked pizzas and big-flavor platters, made to order.</p>
+        <div class="social" data-social></div>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html?cat=burgers">Burgers</a></li>
+          <li><a href="menu.html?cat=pizzas">Pizzas</a></li>
+          <li><a href="menu.html?cat=platters">Platters</a></li>
+          <li><a href="menu.html?cat=sides">Sides</a></li>
+          <li><a href="menu.html?cat=wraps">Sandwiches &amp; Wraps</a></li>
+          <li><a href="menu.html?cat=drinks">Drinks</a></li>
+          <li><a href="menu.html?cat=desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li data-site="address"></li>
+          <li data-site="phone"></li>
+          <li data-site="email"></li>
+          <li data-site="hours"></li>
+          <li><a class="dirLink">Get Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mapbox"><iframe class="mapFrame" title="Map of the café area" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></div><small>Placeholder location. Edit SITE in
+          js/data.js.</small>
+      </div>
+    </div>
+    <p class="copy">© 2026 Smoky Stack Café. Demo ordering site: no real payments or deliveries.</p>
+  </footer>
+  <button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -4,9 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smoky Stack | Burgers &amp; Pizza Café</title>
-  <meta name="description" content="Fresh burgers and cheesy pizzas made to order.">
-  <!-- Fonts: Anton for oversized headlines, Poppins for body. Falls back to system fonts offline -->
+  <title>Home | Smoky Stack</title>
+  <meta name="description" content="Smoky Stack burgers, pizzas and platters.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap"
     rel="stylesheet">
@@ -14,23 +13,22 @@
 </head>
 
 <body>
-
-  <!-- ============ NAVBAR (sticky, background fades in on scroll) ============ -->
   <header class="nav" id="nav">
-    <a href="#home" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+    <a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
     <nav class="links" id="links" aria-label="Main">
-      <a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#offers">Offers</a><a
-        href="#contact">Contact</a>
+      <a href="index.html" class="active" aria-current="page">Home</a><a href="menu.html">Menu</a><a
+        href="about.html">About</a><a href="offers.html">Offers</a><a href="my-orders.html">My Orders</a><a
+        href="contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
-      <button class="cart" aria-label="Cart">🛒<span id="count">0</span></button>
-      <a href="#menu" class="btn btn-glow sm">Order Now</a>
-      <button class="burger-btn" id="toggle" aria-label="Open menu"><i></i><i></i><i></i></button>
+      <a class="cart" href="cart.html" aria-label="View cart">🛒<span id="count">0</span></a>
+      <a href="menu.html" class="btn btn-glow sm">Order Now</a>
+      <button class="burger-btn" id="toggle" type="button" aria-label="Open menu" aria-expanded="false"
+        aria-controls="links"><span></span><span></span><span></span></button>
     </div>
   </header>
-
+  <div class="navscrim" id="navscrim"></div>
   <main>
-    <!-- ============ HERO: full-screen, layered depth ============ -->
     <section class="hero" id="home">
       <div class="glow"></div>
       <h1 class="hero-title"><span>BITE INTO</span><span>HAPPINESS.</span></h1>
@@ -54,57 +52,15 @@
 
       <div class="hero-copy">
         <p>Fresh Burgers. Cheesy Pizzas. Unforgettable Flavors.</p>
-        <div class="cta"><a href="#menu" class="btn btn-glow">Explore Menu</a><a href="#offers"
+        <div class="cta"><a href="menu.html" class="btn btn-glow">Explore Menu</a><a href="menu.html"
             class="btn btn-ghost">Order Now</a></div>
       </div>
     </section>
-
-    <!-- ============ POPULAR MENU ============ -->
-    <section class="section" id="menu">
-      <div class="deco d2" data-speed="-0.1"></div>
-      <h2 class="title reveal">Popular on the menu</h2>
-      <div class="grid">
-        <!-- Replace each .art emoji with <img src="..." alt="..."> for real food photography -->
-        <article class="card glass reveal">
-          <div class="art">🍔</div>
-          <h3>Classic Cheeseburger</h3>
-          <p>Flame-grilled beef, melted cheddar, pickles, house sauce.</p>
-          <div class="row"><b>$8.50</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-        <article class="card glass reveal">
-          <div class="art">🍔</div>
-          <h3>Double Beef Burger</h3>
-          <p>Two smashed patties, double cheese, caramelised onion.</p>
-          <div class="row"><b>$11.90</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-        <article class="card glass reveal">
-          <div class="art">🍕</div>
-          <h3>Pepperoni Pizza</h3>
-          <p>Stone-baked crust, mozzarella, crispy pepperoni cups.</p>
-          <div class="row"><b>$13.00</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-        <article class="card glass reveal">
-          <div class="art">🍕</div>
-          <h3>BBQ Chicken Pizza</h3>
-          <p>Smoky BBQ sauce, grilled chicken, red onion, coriander.</p>
-          <div class="row"><b>$14.50</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-        <article class="card glass reveal">
-          <div class="art">🍟</div>
-          <h3>Loaded Cheese Fries</h3>
-          <p>Crinkle-cut fries under cheese sauce and crispy bacon.</p>
-          <div class="row"><b>$5.90</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-        <article class="card glass reveal">
-          <div class="art">🥤</div>
-          <h3>Iced Cola Float</h3>
-          <p>Ice-cold cola with a scoop of vanilla ice cream.</p>
-          <div class="row"><b>$3.80</b><button class="btn btn-glow sm add">Add to Cart</button></div>
-        </article>
-      </div>
+    <section class="section" id="best">
+      <h2 class="title reveal">Best sellers</h2>
+      <div class="mgrid" id="bestGrid"></div>
+      <p class="more"><a class="btn btn-glow" href="menu.html">View full menu</a></p>
     </section>
-
-    <!-- ============ FEATURED PIZZA SHOWCASE (new) ============ -->
     <section class="section two showcase" id="featured">
       <div class="deco d1" data-speed="0.12"></div>
       <!-- Pizza made of 6 separate slices. To use a photo instead, replace .pz with <img class="pz-img" src="pizza.png" alt="Pepperoni pizza"> -->
@@ -134,41 +90,15 @@
         <h2 class="title">Pizza of<br>the week</h2>
         <p>Hand-stretched dough, slow-cooked tomato sauce, stretchy mozzarella and crispy pepperoni cups. Hover the
           pizza to pull a slice.</p>
-        <p class="price"><b>$13.00</b></p>
-        <button class="btn btn-glow add">Add to Cart</button>
+        <p class="price"><b>From Rs. 950</b></p>
+        <button class="btn btn-glow" data-open="p2">Add to Cart</button>
       </div>
     </section>
-
-    <!-- ============ SPECIAL OFFER ============ -->
-    <section class="section" id="offers">
-      <div class="deco d3" data-speed="0.15"></div>
-      <div class="offer reveal">
-        <div>
-          <h2 class="title">BIG FLAVOR,<br>BIGGER DEALS!</h2>
-          <p>Any burger, a 9&Prime; pizza and a drink for one price. Every day until 6 pm.</p>
-          <p class="price"><s>$24.00</s> <b>$17.99</b></p>
-          <a href="#contact" class="btn btn-glow">Grab This Deal</a>
-        </div>
-        <div class="combo reveal from-r"><span>🍔</span><span>🍕</span><span>🥤</span></div>
-      </div>
+    <section class="section" id="deals">
+      <h2 class="title reveal">Hot deals</h2>
+      <div class="mgrid" id="dealGrid"></div>
+      <p class="more"><a class="btn btn-ghost" href="offers.html">See all offers</a></p>
     </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section two" id="about">
-      <div class="pizza reveal from-l" aria-label="Pizza">
-        <i style="top:22%;left:30%"></i><i style="top:30%;left:60%"></i><i style="top:55%;left:22%"></i><i
-          style="top:60%;left:55%"></i><i style="top:42%;left:42%"></i><i style="top:72%;left:38%"></i>
-      </div>
-      <div class="reveal">
-        <h2 class="title">Made fresh,<br>served fast</h2>
-        <p>Our dough is proofed for 48 hours, our patties are ground daily and our vegetables arrive every morning from
-          local farms. Nothing sits under a heat lamp.</p>
-        <p>Come in for a quick bite or stay for the whole evening. Our team keeps the tables clean, the music low and
-          the food hot.</p>
-      </div>
-    </section>
-
-    <!-- ============ REVIEWS ============ -->
     <section class="section" id="reviews">
       <h2 class="title reveal">What our guests say</h2>
       <div class="grid three">
@@ -186,39 +116,64 @@
         </blockquote>
       </div>
     </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section two" id="contact">
-      <div class="reveal">
-        <h2 class="title">Visit or message us</h2>
-        <ul class="info">
-          <li>📍 123 Main Street, Your City</li>
-          <li>🕒 Mon–Thu 11am–11pm · Fri–Sun 11am–1am</li>
-          <li>📞 +00 000 000 0000</li>
-          <li>✉️ hello@smokystack.example</li>
-        </ul>
-        <div class="social"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#"
-            aria-label="X">X</a><a href="#" aria-label="TikTok">TT</a></div>
+    <section class="section">
+      <div class="infostrip">
+        <div><b>Preparation</b>10-30 min depending on items</div>
+        <div><b>Delivery</b>Rs. 150 | about 30 min (demo)</div>
+        <div><b>Minimum order</b>Rs. 500</div>
+        <div><b>Offer</b>10% off orders over Rs. 3,000</div>
       </div>
-      <form class="glass form reveal" id="form">
-        <label>Name<input type="text" name="name" required></label>
-        <label>Email<input type="email" name="email" required></label>
-        <label>Message<textarea name="message" rows="4" required></textarea></label>
-        <button class="btn btn-glow" type="submit">Send message</button>
-        <p class="ok" id="ok" role="status"></p>
-      </form>
     </section>
   </main>
-
-  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <a href="#home" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
-    <nav><a href="#menu">Menu</a><a href="#about">About</a><a href="#offers">Offers</a><a href="#contact">Contact</a>
-    </nav>
-    <div class="social"><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="Facebook">FB</a><a href="#"
-        aria-label="X">X</a></div>
-    <small>© 2026 Smoky Stack Café. All rights reserved.</small>
+    <div class="fgrid">
+      <div><a href="index.html" class="logo"><span class="logo-icon">🍔</span> Smoky Stack</a>
+        <p>Fresh burgers, stone-baked pizzas and big-flavor platters, made to order.</p>
+        <div class="social" data-social></div>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="my-orders.html">My Orders</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html?cat=burgers">Burgers</a></li>
+          <li><a href="menu.html?cat=pizzas">Pizzas</a></li>
+          <li><a href="menu.html?cat=platters">Platters</a></li>
+          <li><a href="menu.html?cat=sides">Sides</a></li>
+          <li><a href="menu.html?cat=wraps">Sandwiches &amp; Wraps</a></li>
+          <li><a href="menu.html?cat=drinks">Drinks</a></li>
+          <li><a href="menu.html?cat=desserts">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit us</h4>
+        <ul>
+          <li data-site="address"></li>
+          <li data-site="phone"></li>
+          <li data-site="email"></li>
+          <li data-site="hours"></li>
+          <li><a class="dirLink">Get Directions</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="mapbox"><iframe class="mapFrame" title="Map of the café area" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></div><small>Placeholder location. Edit SITE in
+          js/data.js.</small>
+      </div>
+    </div>
+    <p class="copy">© 2026 Smoky Stack Café. Demo ordering site: no real payments or deliveries.</p>
   </footer>
+  <button class="totop" id="totop" type="button" aria-label="Back to top">↑</button>
+
 
   <script src="script.js"></script>
 </body>
