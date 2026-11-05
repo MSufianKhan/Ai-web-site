@@ -5,7 +5,7 @@
              12 My Orders   13 Footer  14 Responsive (all media queries)
    ===================================================================== */
 /* ===== Design tokens: dark base with red / orange / yellow / cream accents ===== */
-  {}
+  
 
 :root {
   --bg: #0e0806;
@@ -50,7 +50,7 @@ a {
 }
 
 /* ===== Buttons: glowing, lift on hover ===== */
-  {}
+  
 
 .btn {
   display: inline-block;
@@ -77,16 +77,16 @@ a {
   transform: translateY(-3px) scale(1.04);
   box-shadow: 0 0 40px rgba(255, 120, 30, .9)
 }
-
 .btn-ghost {
   border: 2px solid var(--cream);
-  color: var(--cream)
+  color: var(--cream);
+  background: transparent;
 }
 
 .btn-ghost:hover {
   background: var(--cream);
   color: var(--bg);
-  transform: translateY(-3px)
+  transform: translateY(-3px);
 }
 
 /* ===== Navbar ===== */
